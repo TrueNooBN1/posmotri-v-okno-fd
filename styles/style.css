@@ -57,26 +57,29 @@ ol {
 .content {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  /* grid-template-rows: 1fr; */
-  grid-template-areas: "left right";
-                       /* "search search search right"; */
-  /* justify-content: center; */
-  column-gap: 30px;
+  grid-template-areas: "result-area details-area";
+  row-gap: 30px;
   margin: auto 30px;
-  /* align-items: end; */
-  /* width: 1140px; */
+  justify-self: start;
+
 }
 
 .result {
+  padding:78px 0px 0px 0px;
   width: 711px;
-  grid-area: left;
+  grid-area: result-area;
 }
 .content__details {
-  grid-area: right;
+  grid-area: details-area;
+  display: flex;
+  flex-direction: column;
+  justify-items: end;
+  gap: 22px;/* 22 px is working*/
 }
 
 .result__video-container {
   margin-bottom: 16px;
+  height: 386px;
 }
 
 .result__video {
@@ -84,7 +87,6 @@ ol {
   object-fit: fill;
   object-position: center;
   width: 100%;
-  padding:78px 0px 0px 0px;
 }
 
 .search-form {
@@ -95,6 +97,22 @@ ol {
   width: 100%;
 }
 
+.content__accent {
+  color: #545050;
+}
+
+.title {
+  font-family: "Oswald", sans-serif;
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 75px;
+  line-height: 70.5px;
+  text-transform: uppercase;
+  height: 210px;
+  width: 259px;
+  margin-top: 5px;
+}
+
 .content__list-container {
   max-height: 298px;
   overflow: auto;
@@ -103,10 +121,12 @@ ol {
 .content__list-item:not(:last-child) {
   margin-bottom: 30px;
 }
+
 .content__video-card {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
+  row-gap: 0px;
 }
 
 .content__video-card-thumbnail {
@@ -116,6 +136,29 @@ ol {
   height: 103px;
 }
 
+.content__video-card-description {
+  margin-top: 6px;
+  font-size: 18px;
+  font-style: normal;
+  line-height: 16.2px;
+  font-family: 'Fira Sans Condensed', sans-serif;
+  color: #FFFFFF;
+  font-weight: 400;
+}
+
 .content__video-card-description-container {
   flex-grow: 1;
+}
+
+.content__card-link {
+  color: white;
+}
+
+.content__video-card-title {
+  font-family: "Oswald", sans-serif;
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 30px;
+  text-transform: uppercase;
 }
