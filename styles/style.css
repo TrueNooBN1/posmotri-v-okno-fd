@@ -299,7 +299,7 @@ ol {
   height: 27px;
 }
 
-.search-form__label:has(:focus-visible) { 
+.search-form__label:has(:focus-visible) {
   outline: 1px solid white;
   outline-offset: 1px;
 }
@@ -313,7 +313,6 @@ ol {
 }
 
 .search-form__label {
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -323,7 +322,6 @@ ol {
 /*start new checkbox*/
 
 .search-form__pseudo-checkbox {
-  position: relative;
   width: 19px;
   height: 19px;
   margin-right: 5px;
