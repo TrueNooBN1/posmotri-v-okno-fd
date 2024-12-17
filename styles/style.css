@@ -70,20 +70,32 @@ ol {
   background-color: transparent;
   border: 1px solid #FFF;
   font-weight: 700;
-  color: white;
+  color: #FFF;
+  height: 34px;
+}
+
+.button:focus-visible{
+  outline:1px solid #fff;
+  outline-offset: 1px;
+}
+
+.button:hover {
+  text-decoration: underline;  
+}
+
+.button:active {
+ background-color: #545050;
 }
 
 .more-button {
-  width: 390px;
-  margin-top: 30px;
-  /* width: 100%; */
-  /* padding: 0px 20px; */
+  width: 100%;
+  margin-bottom: 2px;
+  margin-top: 28px;
 }
 
 .search-form__submit-button {
   width: 194px;
-  height: 34px;
-  margin-top: 20px;
+  margin-top: 18px;
 }
 
 .result {
@@ -91,17 +103,18 @@ ol {
   width: 711px;
   grid-area: result-area;
 }
+
 .content__details {
   grid-area: details-area;
   display: flex;
   flex-direction: column;
   justify-items: end;
-  gap: 26px;/* 22 px is working*/
-  /* width: 399px; */
+  gap: 20px;
 }
 
 .result__video-container {
-  margin-bottom: 16px;
+  position: relative;
+  margin-bottom: 18px;
   height: 386px;
 }
 
@@ -137,29 +150,34 @@ ol {
   color: #FFFFFF;
   font-weight: 700;
   font-size: 75px;
-  line-height: 70.5px;
+  line-height: 69.5px;
   text-transform: uppercase;
   height: 210px;
   width: 259px;
   margin-top: 5px;
+  margin-bottom: 0px;
 }
 
 .content__list {
-  width: 395px;/*399 - 4px widch of scrollbar*/
+  width: 390px;/*399 - 4px widch of scrollbar*/
 }
 
 .content__list-container {
+  position: relative;
   max-height: 298px;
-  overflow: auto;
-  max-width: fit-content;
+  overflow-x: hidden;
+  max-width: 399px;
+  padding: 0 3px;
 }
-
-/* .content__list-item{
-  margin-bottom: 30px;
-} */
 
 .content__list-item:not(:last-child) {
   margin-bottom: 30px;
+}
+
+.content__list-item {
+  /* padding: 0px 3px 0px; */
+  margin-top: 3px;
+  width: 100%;
 }
 
 .content__video-card {
@@ -167,13 +185,23 @@ ol {
   flex-direction: row;
   align-items: flex-start;
   justify-content: space-around;
-  width: 390px;
-  /* row-gap: 0px; */
+}
+
+.content__video-card:hover {
+  text-decoration: underline;
+}
+
+.content__list-item:has(:focus-visible) {
+  outline: 1px solid #fff;
+  outline-offset: 1px;
+}
+
+.content__card-link:focus {
+  outline: none;
 }
 
 .content__video-card-thumbnail {
   box-sizing: border-box;
-  /* margin-right: 5px; */
   object-fit: cover;
   object-position: center;
   width: 194px;
@@ -196,6 +224,11 @@ ol {
 
 .content__card-link {
   color: white;
+  text-decoration: none;
+}
+
+.content__card-link_current .content__video-card {
+  background-color: #545050;
 }
 
 .content__video-card-title {
@@ -225,20 +258,21 @@ ol {
   border: none;
 }
 
-.search-form__label {
-  display: flex;
-}
-
 .search-form__checkbox-list {
   display: flex;
   flex-direction: row;
+  justify-content: start;
   gap: 15px;
   width: 212px;
-  height: 54px;
+  height: 20px;
 }
 
 .search-form__fieldset-title + .search-form__checkbox-list {
-  margin-top: 7px;
+  margin-top: 5px;
+}
+
+.search-form__fieldset-title + .search-form__label {
+  margin-top: 3px;
 }
 
 .search-form__fieldset-title {
@@ -250,6 +284,7 @@ ol {
 }
 
 .search-form__textfield {
+  appearance: none;
   background-color: transparent;
   border: none;
   border-bottom: 1px solid white;
@@ -262,12 +297,58 @@ ol {
   padding: 2.5px 0px;
   width: 225px;
   height: 27px;
-  margin-top: 4px;
 } 
 
-.search-form__pseudo-checkbox {
-  border: 1px solid #FFF;
+.search-form__label:has(:focus-visible){
+  outline: 1px solid white;
+  outline-offset: 1px;
+}
+
+.search-form__textfield:focus-visible{
+  outline: none;
+}
+
+.search-form__textfield:active{
+  border: 1px solid white;
+}
+
+.search-form__label {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: fit-content;
+}
+
+/*start new checkbox*/
+
+.search-form__pseudo-checkbox{
+  position: relative;
   width: 19px;
   height: 19px;
   margin-right: 5px;
+  vertical-align: middle;
+  background-color: #000;
+  border: 1px solid #FFF;
 }
+
+.search-form__checkbox{
+  width: 0px;
+  height: 0px;
+}
+
+.search-form__checkbox:checked + .search-form__pseudo-checkbox::after{
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  content: '';
+  background-color: white;
+  width: 15px;
+  height: 15px;
+}
+.search-form__label:has(.search-form__checkbox:hover){
+  text-decoration: underline;
+}
+/*end new checkbox*/
+
+
